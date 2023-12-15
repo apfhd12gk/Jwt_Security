@@ -24,7 +24,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         return repository.findByUsername(username)
                 .map(this::creatUserDetails)
                 .orElseThrow(() -> new UsernameNotFoundException(username + " 찾을 수 없습니다."));
-
     }
 
     private UserDetails creatUserDetails(UserMan userMan) {
