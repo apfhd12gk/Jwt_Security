@@ -9,7 +9,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserMan {
+@Table(name = "_user")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +25,7 @@ public class UserMan {
     private Authority authority;
 
     @Builder
-    public UserMan(String username, String password, Authority authority) {
+    public User(String username, String password, Authority authority) {
         this.username = username;
         this.password = password;
         this.authority = authority;

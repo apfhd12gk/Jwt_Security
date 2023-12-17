@@ -1,8 +1,7 @@
 package hello.jwtstudy.dto;
 
-import hello.jwtstudy.entity.UserMan;
+import hello.jwtstudy.entity.User;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -12,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class MemberResponseDto {
     private String username;
 
-    public static MemberResponseDto of(UserMan userMan) {
-        return new MemberResponseDto(userMan.getUsername());
+    public static MemberResponseDto of(User user) {
+        return new MemberResponseDto(user.getUsername());
     }
 }

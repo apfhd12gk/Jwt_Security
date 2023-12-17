@@ -6,7 +6,7 @@ import hello.jwtstudy.dto.TokenDto;
 import hello.jwtstudy.dto.TokenRequestDto;
 import hello.jwtstudy.entity.Authority;
 import hello.jwtstudy.entity.RefreshToken;
-import hello.jwtstudy.entity.UserMan;
+import hello.jwtstudy.entity.User;
 import hello.jwtstudy.jwt.TokenProvider;
 import hello.jwtstudy.repository.MemberRepository;
 import hello.jwtstudy.repository.RefreshTokenRepository;
@@ -32,12 +32,12 @@ public class AuthenticationService {
             throw new RuntimeException("이미 가입되어 있는 유저입니다.");
         }
 
-        UserMan user = UserMan.builder()
+        User user = User.builder()
                 .username(memberRequestDto.getUsername())
                 .password(passwordEncoder.encode(memberRequestDto.getPassword()))
                 .authority(Authority.ROLE_USER)
                 .build();
-        UserMan savedUser = memberRepository.save(user);
+        User savedUser = memberRepository.save(user);
 
         return MemberResponseDto.of(savedUser);
     }
